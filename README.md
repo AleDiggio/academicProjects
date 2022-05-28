@@ -1,5 +1,4 @@
-# academicProjects
-# Most revelant academic projects done
+# Some of the academic projects done
 
 ## Web Architecture 
 ## Robotics
