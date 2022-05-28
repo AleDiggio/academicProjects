@@ -1,4 +1,4 @@
-# Some of the academic projects done
+# Some of the academic projects made
 
 ## Web Architecture 
 ## Robotics
