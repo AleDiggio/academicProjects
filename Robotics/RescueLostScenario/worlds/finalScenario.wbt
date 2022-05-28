@@ -1,0 +1,652 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.9999710082122643 -0.007395255819077552 -0.0018146422011486977 0.4812634203055825
+  position -0.707821576417067 11.92015342013968 23.775870266816085
+  follow "floor"
+  followType "None"
+}
+TexturedBackground {
+}
+Floor {
+  size 18 18
+  tileSize 3 3
+  appearance FormedConcrete {
+  }
+}
+DEF Rescuer TiagoBase {
+  translation -6 0.095 6
+  name "TIAGo Rescuer"
+  controller "RescueRobot"
+  supervisor TRUE
+  bodySlot [
+    Emitter {
+      name "emitter2"
+      channel 2
+    }
+    Emitter {
+      name "emitter3"
+      channel 3
+    }
+    Emitter {
+      name "emitter4"
+      channel 4
+    }
+    Receiver {
+      name "receiver2"
+      channel 2
+    }
+    Receiver {
+      name "receiver4"
+      channel 4
+    }
+    Receiver {
+      name "receiver3"
+      channel 3
+    }
+    DistanceSensor {
+      translation -0.256 0 0.14
+      rotation 0 0 1 3.14159
+      children [
+        Solid {
+          children [
+            DEF DS Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "rear"
+      lookupTable [
+        0 0 0
+        0.1 0.1 0
+        0.2 0.2 0
+        0.3 0.3 0
+        0.4 0.4 0
+        0.5 0.5 0
+        1 1 0
+        1.5 1.5 0
+      ]
+      type "laser"
+      aperture 0.525
+    }
+    DistanceSensor {
+      translation 0.256 0 0.14
+      children [
+        Solid {
+          children [
+            DEF DS Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "front"
+      lookupTable [
+        0 0 0
+        0.1 0.1 0
+        0.2 0.2 0
+        0.3 0.3 0
+        0.4 0.4 0
+        0.5 0.5 0
+        1 1 0
+        1.5 1.5 0
+      ]
+      type "laser"
+      aperture 0.525
+    }
+    DistanceSensor {
+      translation 0 -0.256 0.14
+      rotation 0 0 -1 1.5708
+      children [
+        Solid {
+          children [
+            DEF DS Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "sideRight"
+      lookupTable [
+        0 0 0
+        0.1 0.1 0
+        0.2 0.2 0
+        0.3 0.3 0
+        0.4 0.4 0
+        0.5 0.5 0
+        1 1 0
+        1.5 1.5 0
+      ]
+      type "laser"
+      aperture 0.525
+    }
+    DistanceSensor {
+      translation 0 0.256 0.14
+      rotation 0 0 1 1.5708
+      children [
+        Solid {
+          children [
+            DEF DS Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 0
+                metalness 0
+              }
+              geometry Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "sideLeft"
+      lookupTable [
+        0 0 0
+        0.1 0.1 0
+        0.2 0.2 0
+        0.3 0.3 0
+        0.4 0.4 0
+        0.5 0.5 0
+        1 1 0
+        1.5 1.5 0
+      ]
+      type "laser"
+      aperture 0.525
+    }
+    Compass {
+      rotation 0.5773502691896258 -0.5773502691896258 -0.5773502691896258 2.09
+    }
+  ]
+}
+Solid {
+  translation -6 0.0015 6
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0 0
+        metalness 0
+      }
+      geometry Plane {
+        size 1.5 1.5
+      }
+    }
+  ]
+  name "baseRED"
+}
+Solid {
+  translation -7.5 0.0015 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.6 0
+        metalness 0
+      }
+      geometry Plane {
+        size 1.5 1.5
+      }
+    }
+  ]
+  name "baseGREEN"
+}
+Solid {
+  translation 7.5 0.0015 -3
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.7 0
+        metalness 0
+      }
+      geometry Plane {
+        size 1.5 1.5
+      }
+    }
+  ]
+  name "baseGOLD"
+}
+Solid {
+  translation 6 0.0015 7.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0.6
+        metalness 0
+      }
+      geometry Plane {
+        size 1.5 1.5
+      }
+    }
+  ]
+  name "baseBLUE"
+}
+Solid {
+  translation -0.798226 -0.2 -5.2
+  rotation 0 1 0 1.5708
+  scale 1.15 1.15 1.15
+}
+Solid {
+  translation 0 0.5 0
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation -1.5 0.5 0
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation 6 0.5 4.5
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(11)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation 6 0.5 -4.5
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(10)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation -4.5 0.5 -6
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(9)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation 0 0.5 -6
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation 4.5 0.5 -6
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation -1.5 0.5 -6
+  children [
+    DEF BOX4 Shape {
+      appearance PBRAppearance {
+        baseColor 0.730968 0.73402 0.743191
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation 6 0.5 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE BOX4
+}
+Solid {
+  translation -6 0.5 3
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.7 0.7 0.7
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation -1.5 0.5 6
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(13)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation 0 0.5 6
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(14)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation 4.5 0.5 1.5
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(15)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation 3 0.5 1.5
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(16)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation 4.5 0.5 4.5
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(17)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation 6 0.5 -6
+  children [
+    DEF BOX3 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(12)"
+  boundingObject USE BOX3
+}
+Solid {
+  translation -6 0.5 -1.5
+  children [
+    DEF BOX2 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE BOX2
+}
+Solid {
+  translation -6 0.5 -6
+  children [
+    DEF BOX2 Shape {
+      appearance PBRAppearance {
+        baseColor 0.86743 0.877638 0.877638
+        metalness 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(18)"
+  boundingObject USE BOX2
+}
+Wall {
+  translation 0 0 -6.84
+  name "wallNORD"
+  size 13.85 1 0.2
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation -3 0 -3.24
+  rotation 0 1 0 1.5708
+  size 7 1 0.4
+}
+Wall {
+  translation -3 0 5.36
+  rotation 0 1 0 1.5708
+  name "wall(3)"
+  size 2.8 1 0.4
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation 0.2 0 -1.5
+  name "wall(1)"
+  size 6.3 1 0.4
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation 3.2 0 3
+  name "wall(2)"
+  size 7.1 1 0.4
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation -0.2 0 6.84
+  name "wallSUD"
+  size 10.2 1 0.2
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation -6.84 0 -3.9
+  rotation 0 1 0 1.5708
+  name "wallOVEST"
+  size 6 1 0.2
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation -6.84 0 3.9
+  rotation 0 1 0 1.5708
+  name "wallOVEST(1)"
+  size 6 1 0.2
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation 6.84 0 -5.4
+  rotation 0 1 0 1.5708
+  name "wallEST"
+  size 3 1 0.2
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+Wall {
+  translation 6.84 0 2.39
+  rotation 0 1 0 1.5708
+  name "wallEST(1)"
+  size 9 1 0.2
+  appearance Roughcast {
+    colorOverride 0.872053 0.8757 0.886641
+    textureTransform TextureTransform {
+      scale 1 2.4
+    }
+  }
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 40
+  location 0 15 0
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 40
+  location 0 15 18
+}
